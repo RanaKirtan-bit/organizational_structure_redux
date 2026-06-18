@@ -68,11 +68,31 @@ export default function TreeNode({ node, isRoot = false }) {
   return (
     <div className="w-full">
       <div
-        className={`relative overflow-hidden border rounded-3xl p-5 backdrop-blur-xl shadow-lg hover:shadow-2xl hover:-translate-y-1 transition-all duration-300 ${style.card}`}
-      >
+  className={`
+    relative overflow-hidden
+    border rounded-3xl p-5
+    backdrop-blur-xl
+    shadow-lg
+    hover:shadow-2xl
+    hover:-translate-y-1
+    transition-all duration-300
+    ${style.card}
+    ${node.isNew ? "new-node ring-4 ring-yellow-300" : ""}
+  `}
+>
         <div className="flex justify-between items-center">
           <div className="flex items-center gap-4">
-            <div className="w-14 h-14 rounded-full bg-white/20 flex items-center justify-center text-2xl">
+            <div
+  className="
+  w-14 h-14
+  rounded-full
+  bg-white/20
+  backdrop-blur-md
+  flex items-center justify-center
+  text-2xl
+  shadow-lg
+"
+>
               {style.icon}
             </div>
 
@@ -90,7 +110,19 @@ export default function TreeNode({ node, isRoot = false }) {
                 onClick={() =>
                   dispatch(addBranchMember(node.id))
                 }
-                className="w-8 h-8 rounded-full bg-white text-green-600 font-bold"
+                className="
+w-8 h-8
+rounded-full
+text-xl
+flex justify-center items-center
+bg-white
+text-green-600
+font-bold
+shadow-md
+hover:scale-110
+transition
+cursor-pointer
+"
               >
                 +
               </button>
@@ -101,7 +133,19 @@ export default function TreeNode({ node, isRoot = false }) {
                 onClick={() =>
                   dispatch(deleteNode(node.id))
                 }
-                className="w-8 h-8 rounded-full bg-red-500 text-white"
+className="
+w-8 h-8
+rounded-full
+text-xl
+flex justify-center items-center
+bg-red-500
+text-white
+font-bold
+shadow-md
+hover:scale-110
+transition
+cursor-pointer
+"
               >
                 −
               </button>
@@ -109,7 +153,15 @@ export default function TreeNode({ node, isRoot = false }) {
 
             <button
               onClick={() => setShowMenu(!showMenu)}
-              className="text-2xl px-2"
+className="
+text-2xl
+px-2
+font-bold
+hover:bg-white/20
+rounded-md
+cursor-pointer
+transition
+"
             >
               ⋮
             </button>
@@ -117,14 +169,29 @@ export default function TreeNode({ node, isRoot = false }) {
         </div>
 
         {showMenu && (
-          <div className="mt-4 flex flex-col gap-2">
+<div
+  className="
+  mt-4
+  flex flex-col gap-2
+  animate-[fadeInScale_0.25s_ease-out]
+"
+>
             {node.type === "director" && (
               <button
                 onClick={() => {
                   dispatch(addNode(node.id));
                   setShowMenu(false);
                 }}
-                className="bg-white text-blue-700 rounded-lg px-4 py-2"
+className="
+bg-white
+text-blue-700
+rounded-lg
+px-4 py-2
+font-medium
+hover:bg-blue-50
+transition
+cursor-pointer
+"
               >
                 Add New Subordinate Branch
               </button>
@@ -138,7 +205,16 @@ export default function TreeNode({ node, isRoot = false }) {
                   );
                   setShowMenu(false);
                 }}
-                className="bg-white text-green-700 rounded-lg px-4 py-2"
+className="
+bg-white
+text-green-700
+rounded-lg
+px-4 py-2
+font-medium
+hover:bg-green-50
+transition
+cursor-pointer
+"
               >
                 Add Subordinate Branch
               </button>
@@ -152,7 +228,16 @@ export default function TreeNode({ node, isRoot = false }) {
                   );
                   setShowMenu(false);
                 }}
-                className="bg-white text-orange-700 rounded-lg px-4 py-2"
+className="
+bg-white
+text-orange-700
+rounded-lg
+px-4 py-2
+font-medium
+hover:bg-orange-50
+transition
+cursor-pointer
+"
               >
                 Add Sub Branch Member
               </button>
@@ -163,7 +248,15 @@ export default function TreeNode({ node, isRoot = false }) {
 
       {node.children.length > 0 && (
         <div className="mt-5">
-          <div className={`p-5 ${style.container}`}>
+<div
+  className={`
+    border-2
+    rounded-2xl
+    p-5
+    shadow-inner
+    ${style.container}
+  `}
+>
             <div
               className={
                 isRoot
@@ -180,9 +273,18 @@ export default function TreeNode({ node, isRoot = false }) {
 
               {subordinates.map((child) => (
                 <div
-                  key={child.id}
-                  className="border-2 border-green-300 rounded-2xl bg-white/80 p-4 shadow-md"
-                >
+  key={child.id}
+  className="
+    border-2
+    border-green-300
+    rounded-2xl
+    bg-white/80
+    p-4
+    shadow-md
+    hover:shadow-lg
+    transition-all
+  "
+>
                   <TreeNode node={child} />
                 </div>
               ))}

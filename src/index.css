@@ -12,6 +12,22 @@
   }
 }
 
+@keyframes glowPulse {
+  0% {
+    box-shadow: 0 0 0 rgba(253, 224, 71, 0);
+  }
+
+  50% {
+    box-shadow: 0 0 30px rgba(253, 224, 71, 0.8);
+  }
+
+  100% {
+    box-shadow: 0 0 0 rgba(253, 224, 71, 0);
+  }
+}
+
 .new-node {
-  animation: fadeInScale 0.5s ease-out;
+  animation:
+    fadeInScale 0.5s ease-out,
+    glowPulse 1.5s ease-in-out;
 }
