@@ -76,7 +76,7 @@ const orgTreeSlice = createSlice({
         }
         return {
           ...node,
-          childCounter: node.childcounter + 1,
+          childCounter: node.childCounter + 1,
           children: [...node.children, newNode],
         };
       });

@@ -67,7 +67,7 @@ export default function TreeNode({ node, isRoot = false }) {
             {node.type === "subordinate" && (
               <button
                 onClick={() => dispatch(addBranchMember(node.id))}
-                className="w-8 h-8 rounded-full text-xl flex justify-center items-center bg-whitetext-green-600 font-bold shadow-md hover:scale-110 transition cursor-pointer">
+                className="w-8 h-8 rounded-full text-xl flex justify-center items-center bg-white text-green-600 font-bold shadow-md hover:scale-110 transition cursor-pointer">
                 +
               </button>
             )}
@@ -75,7 +75,7 @@ export default function TreeNode({ node, isRoot = false }) {
             {!isRoot && (
               <button
                 onClick={() => dispatch(deleteNode(node.id))}
-                className="w-8 h-8 rounded-full text-xl flex justify-center items-center bg-red-500text-white font-bold shadow-md hover:scale-110 transition cursor-pointer">
+                className="w-8 h-8 rounded-full text-xl flex justify-center items-center bg-red-500 text-white font-bold shadow-md hover:scale-110 transition cursor-pointer">
                 −
               </button>
             )}
@@ -96,7 +96,7 @@ export default function TreeNode({ node, isRoot = false }) {
                   dispatch(addNode(node.id));
                   setShowMenu(false);
                 }}
-                className="bg-whitetext-blue-700 rounded-lg px-4 py-2 font-medium hover:bg-blue-50 transition cursor-pointer">
+                className="bg-white text-blue-700 rounded-lg px-4 py-2 font-medium hover:bg-blue-50 transition cursor-pointer">
                 Add New Subordinate Branch
               </button>
             )}
@@ -107,7 +107,7 @@ export default function TreeNode({ node, isRoot = false }) {
                   dispatch(addSubordinateBranch(node.id));
                   setShowMenu(false);
                 }}
-                className="bg-white text-green-700 rounded-lg px-4 py-2 font-mediumhover:bg-green-50 transition cursor-pointer">
+                className="bg-white text-green-700 rounded-lg px-4 py-2 font-medium hover:bg-green-50 transition cursor-pointer">
                 Add Subordinate Branch
               </button>
             )}
@@ -129,7 +129,7 @@ export default function TreeNode({ node, isRoot = false }) {
       {node.children.length > 0 && (
         <div className="mt-5">
           <div
-            className={`border-2 rounded-2xl p-5 shadow-inner ${style.container}`}>
+            className={`rounded-2xl p-5 ${style.container}`}>
             <div
               className={
                 isRoot ? "grid grid-cols-1 lg:grid-cols-2 gap-6" : "space-y-4"
